@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="sk" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DEDO Vietnamese Restaurant - Vitajte v reštaurácii Dedo.">
+    <title>DEDO Vietnamese Restaurant</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@400..700&display=swap"
+        rel="stylesheet">
+    <!-- Local Bootstrap 5.3.7 CSS -->
+    <link rel="stylesheet" href="bootstrap-5.3.7-examples/assets/dist/css/bootstrap.min.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Top Header Navigation -->
+    <header class="dodo-header sticky-top">
+        <!-- Desktop Navigation Container (Visible on screen widths > 768px) -->
+        <div class="header-nav-container">
+            <!-- Left Nav Links -->
+            <div class="left-nav">
+                <a href="onas.html" class="dodo-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="dodo-nav-link">Galléria</a>
+                <a href="contact.html" class="dodo-nav-link">Kontakt</a>
+            </div>
+
+            <!-- Logo (Centered on Desktop) -->
+            <a href="index.html" class="dodo-logo-link">
+                <img src="images/logo.png" alt="ĐEĐO Logo" class="dodo-logo-img">
+            </a>
+
+            <!-- Right Nav Links -->
+            <div class="right-nav">
+                <!-- Menu Link with Fork & Spoon Icon -->
+                <a href="menu.html" class="dodo-nav-link">
+                    <span class="dodo-nav-text d-none d-md-inline">Menu</span>
+                    <img src="images/Menu.png" alt="Menu Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Rezervovat Link with Service Bell Icon -->
+                <a href="index.html#reserve" class="dodo-nav-link text-nowrap">
+                    <span class="dodo-nav-text d-none d-md-inline">Rezervovať si stôl</span>
+                    <img src="images/Rezervovať%20si%20stôl.png" alt="Reservation Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Cart Icon -->
+                <a href="cart.html" class="dodo-nav-link" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Language Switcher -->
+                <div class="lang-selector">
+                    <a href="#" class="lang-link">SK</a> | <a href="#" class="lang-link">EN</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Container (Visible on screen widths <= 768px) -->
+        <div class="mobile-nav-container">
+            <!-- Logo (Left-aligned on Mobile) -->
+            <a href="index.html" class="mobile-logo-link">
+                <img src="images/logo.png" alt="ĐEĐO Logo" class="mobile-logo-img">
+            </a>
+
+            <!-- Right Utilities (Cart & Hamburger) -->
+            <div class="mobile-right-utils">
+                <!-- Shopping Cart Icon -->
+                <a href="cart.html" class="mobile-cart-link" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart" class="mobile-cart-icon">
+                </a>
+
+                <!-- Hamburger Menu Trigger (Morphs into X on click) -->
+                <button class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle Menu"
+                    aria-expanded="false">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Custom Premium Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+    <div class="mobile-drawer-panel" id="mobileMenuDrawer">
+        <div class="mobile-drawer-body">
+            <nav class="mobile-drawer-nav">
+                <a href="index.html" class="mobile-drawer-link active">Štart</a>
+                <a href="index.html#about" class="mobile-drawer-link">O nás</a>
+                <a href="onas.html#gallery" class="mobile-drawer-link">Galléria</a>
+                <a href="contact.html" class="mobile-drawer-link">Kontakt</a>
+                <a href="menu.html" class="mobile-drawer-link">Menu</a>
+                <a href="index.html#reserve" class="mobile-drawer-link">Rezervovať si stôl</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="dodo-hero d-flex align-items-center justify-content-center position-relative">
+            <!-- Warm overlay filter -->
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-container text-center z-2">
+                <!-- Center Big Heading -->
+                <div class="hero-text-block">
+                    <!-- O NÁS -->
+                    <h2 class="hero-top-title">O NÁS</h2>
+
+                    <!-- Middle text row (Vietnamese / Restaurant) -->
+                    <div class="hero-middle-row">
+                        <span class="hero-subtext">Vietnamese</span>
+                        <span class="hero-subtext">Restaurant</span>
+                    </div>
+
+                    <!-- DODO Heading -->
+                    <h1 class="hero-main-title">DODO</h1>
+                </div>
+
+                <!-- Bottom welcome paragraph -->
+                <div
+                    class="hero-bottom-content text-start position-absolute bottom-0 start-0 p-4 p-md-5 w-100 max-width-600">
+                    <p class="hero-welcome-text fs-5">
+                        Vitajte v reštaurácii Dodo – kde sa podstata vietnamskej kuchyne prináša do srdca Slovenska.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Detail Section -->
+        <section id="about" class="dodo-about-section">
+            <div class="container dodo-about-container">
+                <div class="row align-items-center">
+                    <!-- Left: Image -->
+                    <div class="col-12 col-md-6 mb-4 mb-md-0 d-flex justify-content-center">
+                        <div class="about-image-wrapper scroll-from-left">
+                            <img src="images/img1.png" alt="O NÁS Interior" class="about-img">
+                        </div>
+                    </div>
+                    <!-- Right: Text Content -->
+                    <div class="col-12 col-md-6 d-flex flex-column align-items-center text-center">
+                        <div class="about-text-wrapper scroll-from-right">
+                            <h2 class="about-title">VIAC NEŽ LEN<br class="d-none d-md-block">CHUŤ</h2>
+                            <p class="about-description">
+                                Reštaurácia DODO bola vybudovaná s túžbou ponúkať<br class="d-none d-md-block">
+                                vysokokvalitné jedlo v mladistvej, modernej a<br class="d-none d-md-block">
+                                priateľskej atmosféreVeríme, že chutné jedlo nie je len o<br class="d-none d-md-block">
+                                chuti, ale aj o zážitku zákazníka. Preto sa od surovín a<br class="d-none d-md-block">
+                                procesu prípravy až po obsluhu starostlivo premýšľa o<br class="d-none d-md-block">
+                                každom detaile..
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Banner Section -->
+        <section class="dodo-quote-section">
+            <div class="container dodo-quote-container">
+                <div class="quote-banner-card scroll-fade-in" style="background-image: url('images/img2.png');">
+                    <div class="quote-card-overlay">
+                        <p class="quote-text">
+                            DODO je viac než len reštaurácia. Je to miesto, kde<br class="d-none d-md-block">
+                            sa ľudia stretávajú, užívajú si a vytvárajú<br class="d-none d-md-block">
+                            nezabudnuteľné chvíle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="dodo-features-section">
+            <div class="container dodo-features-container">
+                <h2 class="features-section-title scroll-animate">PREČO SI VYBRAŤ DODO?</h2>
+                <div class="row features-row g-4">
+                    <!-- Column 1: Fresh ingredients -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-1">
+                            <img src="images/Čerstvé%20suroviny.png" alt="Čerstvé suroviny" class="feature-icon">
+                            <h3 class="feature-title">Čerstvé suroviny</h3>
+                            <p class="feature-desc">Denne vyberáme vysokokvalitné suroviny, aby sme zabezpečili
+                                konzistentne dokonalú chuť.</p>
+                        </div>
+                    </div>
+                    <!-- Column 2: Distinct tastes -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-2">
+                            <img src="images/Výrazné%20chute.png" alt="Výrazné chute" class="feature-icon">
+                            <h3 class="feature-title">Výrazné chute</h3>
+                            <p class="feature-desc">Naše jedinečné recepty vytvárajú nezabudnuteľnú identitu pre každé
+                                jedlo.</p>
+                        </div>
+                    </div>
+                    <!-- Column 3: Modern atmosphere -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-3">
+                            <img src="images/Moderná%20atmosféra.png" alt="Moderná atmosféra" class="feature-icon">
+                            <h3 class="feature-title">Moderná atmosféra</h3>
+                            <p class="feature-desc">Náš mladistvý a pohodlný dizajn je ideálny pre každú príležitosť.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Column 4: Professional service -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-4">
+                            <img src="images/Profesionálny%20servis.png" alt="Profesionálny servis"
+                                class="feature-icon">
+                            <h3 class="feature-title">Profesionálny servis</h3>
+                            <p class="feature-desc">Náš špecializovaný tím vždy kladie na prvé miesto spokojnosť
+                                zákazníkov.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="reserve" class="dodo-booking-section">
+            <div class="booking-section-overlay">
+                <div class="container dodo-booking-container">
+                    <div class="booking-box scroll-fade-in">
+                        <img src="images/openlogo.png" alt="We are Open" class="booking-open-icon">
+                        <h2 class="booking-title">REZERVUJTE SI STÔL DNES</h2>
+                        <p class="booking-text">
+                            Reštaurácia DODO bola vybudovaná s túžbou<br class="d-none d-md-block">
+                            ponúkať vysokokvalitné jedlo v mladistvej, modernej<br class="d-none d-md-block">
+                            a priateľskej atmosfére.
+                        </p>
+                        <a href="tel:0948046868" class="booking-btn">REZERVÁCIE: 094 804 6868</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="dodo-contact-section">
+            <div class="container dodo-contact-container">
+                <h2 class="contact-section-title scroll-animate">KONTAKTUJTE NÁS</h2>
+                <div class="row contact-row g-4">
+                    <!-- Column 1: Phone / E-mail -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-1">
+                            <div class="contact-icons-wrapper">
+                                <img src="images/Telefón.png" alt="Telefón" class="contact-icon-split">
+                                <img src="images/E-mail.png" alt="E-mail" class="contact-icon-split">
+                            </div>
+                            <h3 class="contact-title">Telefón - E-mail:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">094 804 6868</p>
+                                <p class="contact-info-item">dodorestaurant.mi@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2: Address -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-2">
+                            <img src="images/Adresa.png" alt="Adresa" class="contact-icon">
+                            <h3 class="contact-title">Adresa:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Námestie osloboditeľov 1014/28, 071 01</p>
+                                <p class="contact-info-item">Michalovce - OD DODO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 3: Opening Hours -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-3">
+                            <img src="images/Otváracie%20hodiny.png" alt="Otváracie hodiny" class="contact-icon">
+                            <h3 class="contact-title">Otváracie hodiny</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Pondelok - Štvrtok: 10:00 - 22:00</p>
+                                <p class="contact-info-item">Piatok: 10:00 - 23:00</p>
+                                <p class="contact-info-item">Sobota: 11:00 - 23:00</p>
+                                <p class="contact-info-item">Nedeľa: 11:00 - 22:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 4: Professional Service (Facebook) -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-4">
+                            <img src="images/Profesionálny.png" alt="Facebook" class="contact-icon">
+                            <h3 class="contact-title">Profesionálny servis</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">
+                                    <a href="https://www.facebook.com/profile.php?id=61555562721868" target="_blank"
+                                        class="contact-link-underline">Dodo Vietnamese Restaurant</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="dodo-footer">
+        <div class="container dodo-footer-container">
+            <!-- Footer Navigation links -->
+            <div class="footer-nav">
+                <a href="#about" class="footer-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="footer-nav-link">Galléria</a>
+                <a href="contact.html" class="footer-nav-link">Kontakt</a>
+                <a href="menu.html" class="footer-nav-link">Menu</a>
+                <a href="#reserve" class="footer-nav-link">Rezervovať si stôl</a>
+                <span class="footer-lang-selector">
+                    <a href="#" class="footer-nav-link active">SK</a>
+                    <span class="footer-lang-separator">|</span>
+                    <a href="#" class="footer-nav-link">EN</a>
+                </span>
+            </div>
+            <!-- Footer Big Logo -->
+            <div class="footer-logo-wrapper">
+                <img src="images/img4.png" alt="DODO Vietnamese Restaurant" class="footer-logo">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap-5.3.7-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>

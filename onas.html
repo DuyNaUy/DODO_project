@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="sk" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="O nás - DEDO Vietnamese Restaurant - Spoznajte našu reštauráciu.">
+    <title>O nás - DEDO Vietnamese Restaurant</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@400..700&display=swap"
+        rel="stylesheet">
+    <!-- SVN-Noe Display Font (if available locally or via custom source) -->
+    <style>
+        @font-face {
+            font-family: 'SVN-Noe Display';
+            src: url('fonts/SVN-NoeDisplay.woff2') format('woff2'),
+                url('fonts/SVN-NoeDisplay.woff') format('woff'),
+                url('fonts/SVN-NoeDisplay.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Menu Card Styles for Product Showcase - using original menu layout */
+        .product-showcase-wrapper .menu-card {
+            background-color: transparent;
+            border: 1px solid rgba(239, 217, 135, 0.5);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            padding: 0;
+            transform: scale(0.96);
+        }
+
+        .product-showcase-wrapper .menu-card:hover {
+            transform: scale(0.96) translateY(-4px);
+            border-color: rgba(239, 217, 135, 0.8);
+        }
+
+        .product-showcase-wrapper .menu-card-body {
+            padding: 16px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background-color: var(--dodo-dark-green);
+        }
+
+        .product-showcase-wrapper .menu-card-img-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            margin-bottom: 0;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .product-showcase-wrapper .menu-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-showcase-wrapper .menu-card:hover .menu-card-img {
+            transform: scale(1.06);
+        }
+
+        .product-showcase-wrapper .menu-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-shrink: 0;
+            padding: 0 25px !important;
+        }
+
+        .product-showcase-wrapper .menu-card-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #EFD987;
+            letter-spacing: 0.02em;
+        }
+
+        .product-showcase-wrapper .menu-card-price {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #EFD987;
+            white-space: nowrap;
+        }
+
+        .product-showcase-wrapper .menu-card-description {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(239, 217, 135, 0.7);
+            line-height: 1.5;
+            margin: 0 0 30px 0;
+            padding: 0 25px !important;
+            flex: 1;
+        }
+
+        .product-showcase-wrapper .menu-order-btn {
+            width: 100%;
+            background-color: #EFD987;
+            color: #00322A;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin-top: auto;
+        }
+
+        .product-showcase-wrapper .menu-order-btn:hover {
+            background-color: #EFD987;
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 217, 135, 0.3);
+        }
+
+        /* Quantity control styles to match button height */
+        .product-showcase-wrapper .menu-quantity-control {
+            height: 40px !important;
+        }
+
+        .product-showcase-wrapper .quantity-btn,
+        .product-showcase-wrapper .quantity-value {
+            height: 40px !important;
+        }
+
+        /* Ensure equal height columns */
+        .product-showcase-wrapper .row.g-4>[class*="col-"] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Smooth fade-in animation for product cards */
+        .product-showcase-wrapper .menu-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .product-showcase-wrapper .col-12:nth-child(1) .menu-card {
+            animation-delay: 0.1s;
+        }
+
+        .product-showcase-wrapper .col-12:nth-child(2) .menu-card {
+            animation-delay: 0.2s;
+        }
+
+        .product-showcase-wrapper .col-12:nth-child(3) .menu-card {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(0.96) translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-showcase-wrapper .menu-card {
+                transform: scale(1);
+            }
+
+            .product-showcase-wrapper .menu-card:hover {
+                transform: scale(1) translateY(-4px);
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: scale(1) translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: scale(1) translateY(0);
+                }
+            }
+
+            /* Mobile optimizations for menu cards */
+            .product-showcase-wrapper .menu-card-header {
+                padding: 0 20px !important;
+                flex-wrap: wrap;
+            }
+
+            .product-showcase-wrapper .menu-card-name {
+                font-size: 0.8rem;
+                max-width: 100%;
+            }
+
+            .product-showcase-wrapper .menu-card-price {
+                font-size: 0.8rem;
+            }
+
+            .product-showcase-wrapper .menu-card-description {
+                font-size: 0.7rem;
+                padding: 0 20px !important;
+                margin-bottom: 20px;
+            }
+
+            .product-showcase-wrapper .menu-order-btn {
+                font-size: 0.75rem;
+                height: 44px;
+                letter-spacing: 0.5px;
+            }
+
+            .product-showcase-wrapper .menu-quantity-control {
+                height: 44px !important;
+            }
+
+            .product-showcase-wrapper .quantity-btn,
+            .product-showcase-wrapper .quantity-value {
+                height: 44px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-showcase-wrapper .menu-card-header {
+                padding: 0 16px !important;
+            }
+
+            .product-showcase-wrapper .menu-card-description {
+                padding: 0 16px !important;
+                margin-bottom: 16px;
+            }
+
+            .product-showcase-wrapper .menu-card-name {
+                font-size: 0.75rem;
+            }
+
+            .product-showcase-wrapper .menu-card-price {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Page-scoped responsive polish for O nas (desktop remains untouched) */
+        @media (max-width: 991.98px) and (min-width: 769px) {
+            .onas-page .dodo-hero {
+                min-height: 620px;
+                height: calc(90vh - var(--header-height));
+                background-position: center;
+            }
+
+            .onas-page .hero-text-block {
+                max-width: 520px;
+                margin-top: 24px;
+            }
+
+            .onas-page .hero-top-title,
+            .onas-page .hero-main-title {
+                font-size: 68px;
+            }
+
+            .onas-page .hero-subtext {
+                font-size: 1rem;
+            }
+
+            .onas-page .hero-bottom-content {
+                position: relative !important;
+                left: auto !important;
+                bottom: auto !important;
+                width: min(92%, 720px) !important;
+                margin: 36px auto 0;
+                padding: 20px 24px !important;
+                background: rgba(0, 38, 31, 0.58);
+                border: 1px solid rgba(239, 217, 135, 0.32);
+                backdrop-filter: blur(6px);
+                border-radius: 10px;
+            }
+
+            .onas-page .hero-welcome-text {
+                font-size: 1rem !important;
+                text-align: center;
+                line-height: 1.65;
+            }
+
+            .onas-page .onas-info-section {
+                padding: 56px 0;
+            }
+
+            .onas-page .onas-info-container {
+                padding: 0 20px;
+            }
+
+            .onas-page .onas-info-box {
+                height: 500px;
+            }
+
+            .onas-page .onas-info-box::before {
+                width: calc(88% - 24px);
+                height: calc(76% - 24px);
+            }
+
+            .onas-page .product-showcase-wrapper {
+                padding: 64px 0;
+            }
+
+            .onas-page .product-showcase-title {
+                font-size: 2.15rem;
+                margin-bottom: 30px;
+            }
+
+            .onas-page .product-tabs {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                gap: 10px;
+                margin: 0 0 36px;
+                padding: 0 24px 6px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .onas-page .product-tab {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+
+            .onas-page .product-showcase-container {
+                padding-left: 52px !important;
+                padding-right: 52px !important;
+            }
+
+            .onas-page .product-showcase-grid {
+                gap: 18px;
+            }
+
+            .onas-page .product-showcase-grid>.col-12 {
+                min-width: calc((100% - 18px) / 2);
+                max-width: calc((100% - 18px) / 2);
+            }
+
+            .onas-page .carousel-prev {
+                left: 14px;
+            }
+
+            .onas-page .carousel-next {
+                right: 14px;
+            }
+
+            .onas-page .dodo-gallery-container {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .onas-page .gallery-carousel-wrapper {
+                margin-right: 0;
+            }
+
+            .onas-page .gallery-item {
+                width: calc((100% - 18px) / 2);
+            }
+
+            .onas-page .gallery-progress-wrapper {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .onas-page .dodo-hero {
+                min-height: 560px;
+                background-position: center;
+            }
+
+            .onas-page .hero-text-block {
+                max-width: 300px;
+                margin-top: 14px;
+            }
+
+            .onas-page .hero-top-title,
+            .onas-page .hero-main-title {
+                font-size: clamp(40px, 11vw, 52px);
+                line-height: 0.95;
+            }
+
+            .onas-page .hero-subtext {
+                font-size: 0.82rem;
+                letter-spacing: 0.4px;
+            }
+
+            .onas-page .hero-bottom-content {
+                width: calc(100% - 24px) !important;
+                margin-top: 26px;
+                padding: 18px !important;
+                border-radius: 10px;
+                border: 1px solid rgba(239, 217, 135, 0.28);
+            }
+
+            .onas-page .hero-welcome-text {
+                font-size: 0.92rem !important;
+                line-height: 1.55;
+            }
+
+            .onas-page .onas-info-section {
+                padding: 36px 0;
+            }
+
+            .onas-page .onas-info-container {
+                padding: 0 12px;
+            }
+
+            .onas-page .onas-info-box {
+                min-height: 360px;
+                height: auto;
+                padding: 20px 0;
+            }
+
+            .onas-page .onas-info-box::before {
+                width: calc(100% - 20px);
+                height: calc(100% - 24px);
+            }
+
+            .onas-page .onas-info-title {
+                font-size: 1.9rem;
+                letter-spacing: 0.06em;
+            }
+
+            .onas-page .onas-info-text {
+                font-size: 0.88rem;
+                line-height: 1.65;
+                margin-bottom: 20px;
+                padding: 0 18px;
+            }
+
+            .onas-page .onas-info-btn {
+                min-width: 186px;
+                padding: 11px 26px;
+            }
+
+            .onas-page .product-showcase-wrapper {
+                padding: 48px 0;
+            }
+
+            .onas-page .product-showcase-title {
+                font-size: 1.7rem;
+                margin-bottom: 24px;
+            }
+
+            .onas-page .product-tabs {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin-bottom: 26px;
+                padding: 0 14px 8px;
+                gap: 8px;
+            }
+
+            .onas-page .product-tab {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+
+            .onas-page .product-showcase-container {
+                padding-left: 44px !important;
+                padding-right: 44px !important;
+            }
+
+            .onas-page .product-carousel-wrapper {
+                padding: 0 6px;
+            }
+
+            .onas-page .product-showcase-grid {
+                gap: 14px;
+            }
+
+            .onas-page .product-showcase-grid>.col-12 {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            .onas-page .carousel-prev {
+                left: 6px;
+            }
+
+            .onas-page .carousel-next {
+                right: 6px;
+            }
+
+            .onas-page .view-menu-wrapper {
+                margin-top: 30px;
+                padding: 0 14px;
+            }
+
+            .onas-page .view-menu-btn {
+                width: 100%;
+                max-width: 320px;
+                text-align: center;
+            }
+
+            .onas-page .dodo-gallery-section {
+                padding: 44px 0;
+            }
+
+            .onas-page .dodo-gallery-container {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .onas-page .gallery-carousel-wrapper {
+                margin-right: 0;
+                margin-bottom: 28px;
+            }
+
+            .onas-page .gallery-item {
+                width: 100%;
+                aspect-ratio: 4 / 3;
+            }
+
+            .onas-page .gallery-progress-wrapper {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .onas-page .hero-bottom-content {
+                width: calc(100% - 16px) !important;
+                padding: 16px !important;
+            }
+
+            .onas-page .hero-welcome-text {
+                font-size: 0.86rem !important;
+            }
+
+            .onas-page .onas-info-title {
+                font-size: 1.55rem;
+            }
+
+            .onas-page .onas-info-text {
+                font-size: 0.83rem;
+                padding: 0 14px;
+            }
+
+            .onas-page .product-showcase-container {
+                padding-left: 40px !important;
+                padding-right: 40px !important;
+            }
+
+            .onas-page .product-tab {
+                font-size: 0.7rem;
+                padding: 7px 12px;
+            }
+
+            .onas-page .gallery-title,
+            .onas-page .contact-section-title,
+            .onas-page .booking-title {
+                font-size: 1.45rem;
+            }
+        }
+    </style>
+    <!-- Local Bootstrap 5.3.7 CSS -->
+    <link rel="stylesheet" href="bootstrap-5.3.7-examples/assets/dist/css/bootstrap.min.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="onas-page">
+    <!-- Top Header Navigation -->
+    <header class="dodo-header sticky-top">
+        <!-- Desktop Navigation Container (Visible on screen widths > 768px) -->
+        <div class="header-nav-container">
+            <!-- Left Nav Links -->
+            <div class="left-nav">
+                <a href="onas.html" class="dodo-nav-link active">O nás</a>
+                <a href="#gallery" class="dodo-nav-link">Galléria</a>
+                <a href="contact.html" class="dodo-nav-link">Kontakt</a>
+            </div>
+
+            <!-- Logo (Centered on Desktop) -->
+            <a href="index.html" class="dodo-logo-link">
+                <img src="images/logo.png" alt="ĐEĐO Logo" class="dodo-logo-img">
+            </a>
+
+            <!-- Right Nav Links -->
+            <div class="right-nav">
+                <!-- Menu Link with Fork & Spoon Icon -->
+                <a href="menu.html" class="dodo-nav-link">
+                    <span class="dodo-nav-text d-none d-md-inline">Menu</span>
+                    <img src="images/Menu.png" alt="Menu Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Rezervovat Link with Service Bell Icon -->
+                <a href="index.html#reserve" class="dodo-nav-link text-nowrap">
+                    <span class="dodo-nav-text d-none d-md-inline">Rezervovať si stôl</span>
+                    <img src="images/Rezervovať%20si%20stôl.png" alt="Reservation Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Cart Icon -->
+                <a href="cart.html" class="dodo-nav-link" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Language Switcher -->
+                <div class="lang-selector">
+                    <a href="#" class="lang-link">SK</a> | <a href="#" class="lang-link">EN</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Container (Visible on screen widths <= 768px) -->
+        <div class="mobile-nav-container">
+            <!-- Logo (Left-aligned on Mobile) -->
+            <a href="index.html" class="mobile-logo-link">
+                <img src="images/logo.png" alt="ĐEĐO Logo" class="mobile-logo-img">
+            </a>
+
+            <!-- Right Utilities (Cart & Hamburger) -->
+            <div class="mobile-right-utils">
+                <!-- Shopping Cart Icon -->
+                <a href="cart.html" class="mobile-cart-link" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart" class="mobile-cart-icon">
+                </a>
+
+                <!-- Hamburger Menu Trigger (Morphs into X on click) -->
+                <button class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle Menu"
+                    aria-expanded="false">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Custom Premium Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+    <div class="mobile-drawer-panel" id="mobileMenuDrawer">
+        <div class="mobile-drawer-body">
+            <nav class="mobile-drawer-nav">
+                <a href="index.html" class="mobile-drawer-link">Štart</a>
+                <a href="onas.html" class="mobile-drawer-link active">O nás</a>
+                <a href="#gallery" class="mobile-drawer-link">Galléria</a>
+                <a href="contact.html" class="mobile-drawer-link">Kontakt</a>
+                <a href="menu.html" class="mobile-drawer-link">Menu</a>
+                <a href="index.html#reserve" class="mobile-drawer-link">Rezervovať si stôl</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="dodo-hero d-flex align-items-center justify-content-center position-relative">
+            <!-- Warm overlay filter -->
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-container text-center z-2">
+                <!-- Center Big Heading -->
+                <div class="hero-text-block">
+                    <!-- O NÁS -->
+                    <h2 class="hero-top-title">O NÁS</h2>
+
+                    <!-- Middle text row (Vietnamese / Restaurant) -->
+                    <div class="hero-middle-row">
+                        <span class="hero-subtext">Vietnamese</span>
+                        <span class="hero-subtext">Restaurant</span>
+                    </div>
+
+                    <!-- DODO Heading -->
+                    <h1 class="hero-main-title">DODO</h1>
+                </div>
+
+                <!-- Bottom welcome paragraph -->
+                <div
+                    class="hero-bottom-content text-start position-absolute bottom-0 start-0 p-4 p-md-5 w-100 max-width-600">
+                    <p class="hero-welcome-text fs-5">
+                        Vitajte v reštaurácii Dodo – kde sa podstata vietnamskej kuchyne prináša do srdca Slovenska.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- O NÁS Info Section -->
+        <section class="onas-info-section">
+            <div class="container onas-info-container">
+                <div class="onas-info-box">
+                    <h2 class="onas-info-title">O NÁS</h2>
+                    <p class="onas-info-text">
+                        Reštaurácia DODO bola vybudovaná s túžbou<br class="d-none d-md-block">
+                        ponúkať vysokokvalitné jedlo v mladistvej, modernej<br class="d-none d-md-block">
+                        a priateľskej atmosfére.
+                    </p>
+                    <a href="#about" class="onas-info-btn">O NÁS</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="dodo-features-section">
+            <div class="container dodo-features-container">
+                <h2 class="features-section-title scroll-animate">PREČO SI VYBRAŤ DODO?</h2>
+                <div class="row features-row g-4">
+                    <!-- Column 1: Fresh ingredients -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-1">
+                            <img src="images/Čerstvé%20suroviny.png" alt="Čerstvé suroviny" class="feature-icon">
+                            <h3 class="feature-title">Čerstvé suroviny</h3>
+                            <p class="feature-desc">Denne vyberáme vysokokvalitné suroviny, aby sme zabezpečili
+                                konzistentne dokonalú chuť.</p>
+                        </div>
+                    </div>
+                    <!-- Column 2: Distinct tastes -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-2">
+                            <img src="images/Výrazné%20chute.png" alt="Výrazné chute" class="feature-icon">
+                            <h3 class="feature-title">Výrazné chute</h3>
+                            <p class="feature-desc">Naše jedinečné recepty vytvárajú nezabudnuteľnú identitu pre každé
+                                jedlo.</p>
+                        </div>
+                    </div>
+                    <!-- Column 3: Modern atmosphere -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-3">
+                            <img src="images/Moderná%20atmosféra.png" alt="Moderná atmosféra" class="feature-icon">
+                            <h3 class="feature-title">Moderná atmosféra</h3>
+                            <p class="feature-desc">Náš mladistvý a pohodlný dizajn je ideálny pre každú príležitosť.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Column 4: Professional service -->
+                    <div class="col-12 col-md-6 col-lg-3 feature-column">
+                        <div class="feature-card scroll-animate delay-4">
+                            <img src="images/Profesionálny%20servis.png" alt="Profesionálny servis"
+                                class="feature-icon">
+                            <h3 class="feature-title">Profesionálny servis</h3>
+                            <p class="feature-desc">Náš špecializovaný tím vždy kladie na prvé miesto spokojnosť
+                                zákazníkov.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase Section -->
+        <section class="product-showcase-section">
+            <div class="product-showcase-wrapper">
+                <h2 class="product-showcase-title">PREČO SI VYBRAŤ DODO?</h2>
+
+                <!-- Category Tabs -->
+                <div class="product-tabs">
+                    <button class="product-tab active" data-category="bakalky">BAKALKY</button>
+                    <button class="product-tab" data-category="pizza">PIZZA</button>
+                    <button class="product-tab" data-category="burgery">BURGERY</button>
+                    <button class="product-tab" data-category="tortilky">TORTILKY</button>
+                    <button class="product-tab" data-category="dalsie">ĎALŠIE LY</button>
+                </div>
+
+                <!-- Product Cards Grid (3 columns like menu) -->
+                <div class="product-showcase-carousel">
+                    <button type="button" class="carousel-arrow carousel-prev product-carousel-arrow"
+                        aria-label="Predchádzajúce produkty">
+                        <img src="images/muiten.png" alt=""
+                            class="product-carousel-arrow-img product-carousel-arrow-img-left">
+                    </button>
+
+                    <div class="container product-showcase-container" style="padding-left: 60px; padding-right: 60px;">
+                        <div class="product-carousel-wrapper">
+                            <div class="row product-showcase-grid product-carousel-track">
+                                <!-- Product 1 -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="menu-card">
+                                        <div class="menu-card-img-wrapper">
+                                            <img src="images/sp1.png" alt="Ostrokyslá" class="menu-card-img">
+                                        </div>
+                                        <div class="menu-card-body">
+                                            <div class="menu-card-header">
+                                                <span class="menu-card-name">1. Ostrokyslá 0,25 l</span>
+                                                <span class="menu-card-price">2,00 €</span>
+                                            </div>
+                                            <p class="menu-card-description">Vývar, kuracie mäso, paprika, zázvor,
+                                                mrkva, cibuľa, chilli, vajíčko, cibuľka</p>
+                                            <button class="menu-order-btn" data-item-name="1. Ostrokyslá 0,25 l"
+                                                data-item-price="2.00">OBJEDNAŤ JEDLO</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 2 -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="menu-card">
+                                        <div class="menu-card-img-wrapper">
+                                            <img src="images/sp2.png" alt="Margherita" class="menu-card-img">
+                                        </div>
+                                        <div class="menu-card-body">
+                                            <div class="menu-card-header">
+                                                <span class="menu-card-name">1. Margherita</span>
+                                                <span class="menu-card-price">7,50 / 8,90 / 8,50 €</span>
+                                            </div>
+                                            <p class="menu-card-description">Paradajkový základ, mozzarella</p>
+                                            <button class="menu-order-btn" data-item-name="1. Margherita"
+                                                data-item-prices='[{"label":"Malá","price":7.50},{"label":"Stredná","price":8.90},{"label":"Veľká","price":8.50}]'>OBJEDNAŤ
+                                                JEDLO</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 3 -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="menu-card">
+                                        <div class="menu-card-img-wrapper">
+                                            <img src="images/sp3.png" alt="Bun Bo Hue" class="menu-card-img">
+                                        </div>
+                                        <div class="menu-card-body">
+                                            <div class="menu-card-header">
+                                                <span class="menu-card-name">3. Bun Bo Hue 0.75l</span>
+                                                <span class="menu-card-price">9,00 €</span>
+                                            </div>
+                                            <p class="menu-card-description">Pikantná hovädzia polievka s ryžovými
+                                                rezancami, citrónovou trávou a chilli</p>
+                                            <button class="menu-order-btn" data-item-name="3. Bun Bo Hue 0.75l"
+                                                data-item-price="9.00">OBJEDNAŤ JEDLO</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 4 (Hidden initially) -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="menu-card">
+                                        <div class="menu-card-img-wrapper">
+                                            <img src="images/sp1.png" alt="Ostrokyslá" class="menu-card-img">
+                                        </div>
+                                        <div class="menu-card-body">
+                                            <div class="menu-card-header">
+                                                <span class="menu-card-name">4. Sản phẩm 4</span>
+                                                <span class="menu-card-price">5,00 €</span>
+                                            </div>
+                                            <p class="menu-card-description">Mô tả sản phẩm 4</p>
+                                            <button class="menu-order-btn" data-item-name="4. Sản phẩm 4"
+                                                data-item-price="5.00">OBJEDNAŤ JEDLO</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 5 (Hidden initially) -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="menu-card">
+                                        <div class="menu-card-img-wrapper">
+                                            <img src="images/sp2.png" alt="Margherita" class="menu-card-img">
+                                        </div>
+                                        <div class="menu-card-body">
+                                            <div class="menu-card-header">
+                                                <span class="menu-card-name">5. Sản phẩm 5</span>
+                                                <span class="menu-card-price">6,00 €</span>
+                                            </div>
+                                            <p class="menu-card-description">Mô tả sản phẩm 5</p>
+                                            <button class="menu-order-btn" data-item-name="5. Sản phẩm 5"
+                                                data-item-price="6.00">OBJEDNAŤ JEDLO</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product 6 (Hidden initially) -->
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="menu-card">
+                                        <div class="menu-card-img-wrapper">
+                                            <img src="images/sp3.png" alt="Bun Bo Hue" class="menu-card-img">
+                                        </div>
+                                        <div class="menu-card-body">
+                                            <div class="menu-card-header">
+                                                <span class="menu-card-name">6. Sản phẩm 6</span>
+                                                <span class="menu-card-price">7,00 €</span>
+                                            </div>
+                                            <p class="menu-card-description">Mô tả sản phẩm 6</p>
+                                            <button class="menu-order-btn" data-item-name="6. Sản phẩm 6"
+                                                data-item-price="7.00">OBJEDNAŤ JEDLO</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="carousel-arrow carousel-next product-carousel-arrow"
+                        aria-label="Nasledujúce produkty">
+                        <img src="images/muiten.png" alt="" class="product-carousel-arrow-img">
+                    </button>
+                </div>
+
+                <!-- View Menu Button -->
+                <div class="view-menu-wrapper">
+                    <a href="menu.html" class="view-menu-btn">ZOBRAZIŤ MENU</a>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="dodo-gallery-section">
+            <div class="container dodo-gallery-container">
+                <div class="gallery-header">
+                    <div class="gallery-text-block">
+                        <h2 class="gallery-title">GALLÉRIA</h2>
+                        <p class="gallery-description">Objavte chutné jedlo a modernú a príjemnú<br
+                                class="d-none d-md-block">atmosféru v reštaurácii Dodo.</p>
+                    </div>
+                    <div class="gallery-button-wrapper">
+                        <button class="gallery-view-btn" id="galleryViewBtn">PREJSŤ SI GALLÉRIU</button>
+                    </div>
+                </div>
+
+                <!-- Gallery Carousel -->
+                <div class="gallery-carousel-wrapper">
+                    <div class="gallery-carousel-track">
+                        <!-- Image 1 -->
+                        <div class="gallery-item">
+                            <img src="images/img5.png" alt="Restaurant Interior 1" class="gallery-img">
+                        </div>
+                        <!-- Image 2 -->
+                        <div class="gallery-item">
+                            <img src="images/img6.png" alt="Restaurant Interior 2" class="gallery-img">
+                        </div>
+                        <!-- Image 3 -->
+                        <div class="gallery-item">
+                            <img src="images/img7.png" alt="Restaurant Interior 3" class="gallery-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar with Navigation Arrows -->
+                <div class="gallery-progress-wrapper">
+                    <div class="gallery-progress-bar">
+                        <div class="gallery-progress-fill"></div>
+                    </div>
+                    <div class="gallery-progress-arrows">
+                        <button type="button" class="gallery-progress-arrow gallery-progress-prev"
+                            aria-label="Previous">
+                            <img src="images/muiten.png" alt="" class="progress-arrow-img progress-arrow-img-left">
+                        </button>
+                        <button type="button" class="gallery-progress-arrow gallery-progress-next" aria-label="Next">
+                            <img src="images/muiten.png" alt="" class="progress-arrow-img">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="reserve" class="dodo-booking-section">
+            <div class="booking-section-overlay">
+                <div class="container dodo-booking-container">
+                    <div class="booking-box scroll-fade-in">
+                        <img src="images/openlogo.png" alt="We are Open" class="booking-open-icon">
+                        <h2 class="booking-title">REZERVUJTE SI STÔL DNES</h2>
+                        <p class="booking-text">
+                            Reštaurácia DODO bola vybudovaná s túžbou<br class="d-none d-md-block">
+                            ponúkať vysokokvalitné jedlo v mladistvej, modernej<br class="d-none d-md-block">
+                            a priateľskej atmosfére.
+                        </p>
+                        <a href="tel:0948046868" class="booking-btn">REZERVÁCIE: 094 804 6868</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="dodo-map-section">
+            <div class="container dodo-map-container">
+                <!-- Map Wrapper -->
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.5!2d21.9197!3d48.7547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDQ1JzE3LjAiTiAyMcKwNTUnMTEuMCJF!5e0!3m2!1sen!2ssk!4v1234567890"
+                        class="map-iframe" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="dodo-contact-section">
+            <div class="container dodo-contact-container">
+                <h2 class="contact-section-title scroll-animate">KONTAKTUJTE NÁS</h2>
+                <div class="row contact-row g-4">
+                    <!-- Column 1: Phone / E-mail -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-1">
+                            <div class="contact-icons-wrapper">
+                                <img src="images/Telefón.png" alt="Telefón" class="contact-icon-split">
+                                <img src="images/E-mail.png" alt="E-mail" class="contact-icon-split">
+                            </div>
+                            <h3 class="contact-title">Telefón - E-mail:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">094 804 6868</p>
+                                <p class="contact-info-item">dodorestaurant.mi@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2: Address -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-2">
+                            <img src="images/Adresa.png" alt="Adresa" class="contact-icon">
+                            <h3 class="contact-title">Adresa:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Námestie osloboditeľov 1014/28, 071 01</p>
+                                <p class="contact-info-item">Michalovce - OD DODO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 3: Opening Hours -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-3">
+                            <img src="images/Otváracie%20hodiny.png" alt="Otváracie hodiny" class="contact-icon">
+                            <h3 class="contact-title">Otváracie hodiny</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Pondelok - Štvrtok: 10:00 - 22:00</p>
+                                <p class="contact-info-item">Piatok: 10:00 - 23:00</p>
+                                <p class="contact-info-item">Sobota: 11:00 - 23:00</p>
+                                <p class="contact-info-item">Nedeľa: 11:00 - 22:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 4: Professional Service (Facebook) -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-4">
+                            <img src="images/Profesionálny.png" alt="Facebook" class="contact-icon">
+                            <h3 class="contact-title">Profesionálny servis</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">
+                                    <a href="https://www.facebook.com/profile.php?id=61555562721868" target="_blank"
+                                        class="contact-link-underline">Dodo Vietnamese Restaurant</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="dodo-footer">
+        <div class="container dodo-footer-container">
+            <!-- Footer Navigation links -->
+            <div class="footer-nav">
+                <a href="onas.html" class="footer-nav-link active">O nás</a>
+                <a href="#gallery" class="footer-nav-link">Galléria</a>
+                <a href="contact.html" class="footer-nav-link">Kontakt</a>
+                <a href="menu.html" class="footer-nav-link">Menu</a>
+                <a href="#reserve" class="footer-nav-link">Rezervovať si stôl</a>
+                <span class="footer-lang-selector">
+                    <a href="#" class="footer-nav-link active">SK</a>
+                    <span class="footer-lang-separator">|</span>
+                    <a href="#" class="footer-nav-link">EN</a>
+                </span>
+            </div>
+            <!-- Footer Big Logo -->
+            <div class="footer-logo-wrapper">
+                <img src="images/img4.png" alt="DODO Vietnamese Restaurant" class="footer-logo">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Váš nákupný košík</h2>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <p class="cart-empty">Váš košík je prázdny</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Celkom:</span>
+                <span class="cart-total-price" id="cartTotalPrice">0,00 €</span>
+            </div>
+            <button class="cart-checkout-btn" id="cartCheckoutBtn">OBJEDNAŤ</button>
+        </div>
+    </div>
+
+    <!-- Options Modal (for items with multiple prices/sizes) -->
+    <div class="options-modal-overlay" id="optionsModalOverlay"></div>
+    <div class="options-modal" id="optionsModal">
+        <div class="options-modal-header">
+            <h3 class="options-modal-title" id="optionsModalTitle">Vyberte možnosť</h3>
+            <button class="options-modal-close" id="optionsModalClose">&times;</button>
+        </div>
+        <div class="options-modal-body" id="optionsModalBody">
+            <!-- Options will be dynamically inserted here -->
+        </div>
+        <div class="options-modal-footer">
+            <button class="options-confirm-btn" id="optionsConfirmBtn">PRIDAŤ DO KOŠÍKA</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap-5.3.7-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>

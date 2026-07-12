@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - DODO Vietnamese Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="cart-page-body">
+    <!-- Header -->
+    <header class="dodo-header">
+        <div class="header-nav-container">
+            <!-- Left Navigation -->
+            <nav class="left-nav">
+                <a href="onas.html" class="dodo-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="dodo-nav-link">Galléria</a>
+                <a href="index.html#contact" class="dodo-nav-link">Kontakt</a>
+            </nav>
+
+            <!-- Center Logo -->
+            <a href="index.html" class="dodo-logo-link">
+                <img src="images/logo.png" alt="DODO Logo" class="dodo-logo-img">
+            </a>
+
+            <!-- Right Navigation -->
+            <nav class="right-nav">
+                <a href="menu.html" class="dodo-nav-link">
+                    <span class="dodo-nav-text d-none d-md-inline">Menu</span>
+                    <img src="images/Menu.png" alt="Menu Icon" class="dodo-nav-icon">
+                </a>
+                <a href="index.html#reserve" class="dodo-nav-link text-nowrap">
+                    <span class="dodo-nav-text d-none d-md-inline">Rezervovať si stôl</span>
+                    <img src="images/Rezervovať%20si%20stôl.png" alt="Reservation Icon" class="dodo-nav-icon">
+                </a>
+                <a href="cart.html" class="dodo-nav-link active" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart Icon" class="dodo-nav-icon">
+                </a>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav-container">
+            <a href="index.html" class="mobile-logo-link">
+                <img src="images/logo.png" alt="DODO Logo" class="mobile-logo-img">
+            </a>
+            <div class="mobile-right-utils">
+                <a href="cart.html" class="mobile-cart-link">
+                    <img src="images/cart.png" alt="Cart" class="mobile-cart-icon">
+                </a>
+                <button class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+        <div class="mobile-drawer-panel" id="mobileMenuDrawer">
+            <div class="mobile-drawer-body">
+                <nav class="mobile-drawer-nav">
+                    <a href="onas.html" class="mobile-drawer-link">O nás</a>
+                    <a href="onas.html#gallery" class="mobile-drawer-link">Galléria</a>
+                    <a href="index.html#contact" class="mobile-drawer-link">Kontakt</a>
+                    <a href="menu.html" class="mobile-drawer-link">Menu</a>
+                    <a href="index.html#reserve" class="mobile-drawer-link">Rezervovať si stôl</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Page Content -->
+    <main class="cart-page">
+        <div class="container cart-container">
+            <div class="row">
+                <!-- Left Column: Cart Items -->
+                <div class="col-12 col-lg-7">
+                    <h1 class="cart-page-title">Vaša objednávka</h1>
+                    
+                    <!-- Cart Items List -->
+                    <div class="cart-items-list" id="cartItemsList">
+                        <!-- Cart Item 1 -->
+                        <div class="cart-page-item">
+                            <img src="images/sp1.png" alt="Ostrokyslá" class="cart-page-item-img">
+                            <div class="cart-page-item-info">
+                                <h3 class="cart-page-item-name">Ostrokyslá 0,25 l</h3>
+                            </div>
+                            <div class="cart-page-item-price">8,90</div>
+                            <div class="cart-page-item-controls">
+                                <button class="cart-page-qty-btn minus">-</button>
+                                <span class="cart-page-qty-value">1</span>
+                                <button class="cart-page-qty-btn plus">+</button>
+                            </div>
+                            <button class="cart-page-item-remove">
+                                <img src="images/delete.png" alt="Remove">
+                            </button>
+                        </div>
+
+                        <!-- Cart Item 2 -->
+                        <div class="cart-page-item">
+                            <img src="images/sp2.png" alt="Pho houdete" class="cart-page-item-img">
+                            <div class="cart-page-item-info">
+                                <h3 class="cart-page-item-name">Pho houdete (0,700)</h3>
+                            </div>
+                            <div class="cart-page-item-price">8,90</div>
+                            <div class="cart-page-item-controls">
+                                <button class="cart-page-qty-btn minus">-</button>
+                                <span class="cart-page-qty-value">1</span>
+                                <button class="cart-page-qty-btn plus">+</button>
+                            </div>
+                            <button class="cart-page-item-remove">
+                                <img src="images/delete.png" alt="Remove">
+                            </button>
+                        </div>
+
+                        <!-- Cart Item 3 -->
+                        <div class="cart-page-item">
+                            <img src="images/sp3.png" alt="Hovädží steak" class="cart-page-item-img">
+                            <div class="cart-page-item-info">
+                                <h3 class="cart-page-item-name">Hovädží steak s omáčkou z čierneho korenia 300g</h3>
+                            </div>
+                            <div class="cart-page-item-price">8,90</div>
+                            <div class="cart-page-item-controls">
+                                <button class="cart-page-qty-btn minus">-</button>
+                                <span class="cart-page-qty-value">1</span>
+                                <button class="cart-page-qty-btn plus">+</button>
+                            </div>
+                            <button class="cart-page-item-remove">
+                                <img src="images/delete.png" alt="Remove">
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Frequently Ordered Together -->
+                    <div class="frequently-ordered">
+                        <h2 class="frequently-ordered-title">Často objednávané spolu</h2>
+                        <div class="frequently-ordered-list">
+                            <!-- Item 1 -->
+                            <div class="frequently-ordered-item">
+                                <img src="images/sp1.png" alt="Ostrokyslá" class="frequently-ordered-img">
+                                <div class="frequently-ordered-name">Ostrokyslá 0,25 l</div>
+                                <button class="frequently-ordered-add">+</button>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="frequently-ordered-item">
+                                <img src="images/sp1.png" alt="Ostrokyslá" class="frequently-ordered-img">
+                                <div class="frequently-ordered-name">Ostrokyslá 0,25 l</div>
+                                <button class="frequently-ordered-add">+</button>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="frequently-ordered-item">
+                                <img src="images/sp1.png" alt="Ostrokyslá" class="frequently-ordered-img">
+                                <div class="frequently-ordered-name">Ostrokyslá 0,25 l</div>
+                                <button class="frequently-ordered-add">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Order Summary -->
+                <div class="col-12 col-lg-5">
+                    <div class="order-summary">
+                        <div class="order-summary-row">
+                            <span class="order-summary-label">Medziúčet:</span>
+                            <span class="order-summary-value">8,90</span>
+                        </div>
+                        <div class="order-summary-row">
+                            <span class="order-summary-label">Zľava na produkty</span>
+                            <span class="order-summary-value discount">- 0,00</span>
+                        </div>
+                        <div class="order-summary-divider"></div>
+                        <div class="order-summary-row total">
+                            <span class="order-summary-label">Celkom</span>
+                            <span class="order-summary-value">8,90</span>
+                        </div>
+
+                        <!-- Coupon Code -->
+                        <div class="coupon-code">
+                            <div class="coupon-code-input-wrapper">
+                                <div class="coupon-input-with-icon">
+                                    <img src="images/Zadajte%20zľavový%20kód.png" alt="Coupon" class="coupon-icon">
+                                    <input type="text" class="coupon-code-input" placeholder="Zadajte zľavový kód">
+                                </div>
+                                <button class="coupon-code-btn">Použiť</button>
+                            </div>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <button class="checkout-btn">Pokračovať k platbe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact" class="dodo-contact-section">
+            <div class="container dodo-contact-container">
+                <h2 class="contact-section-title scroll-animate">KONTAKTUJTE NÁS</h2>
+                <div class="row contact-row g-4">
+                    <!-- Column 1: Phone / E-mail -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-1">
+                            <div class="contact-icons-wrapper">
+                                <img src="images/Telefón.png" alt="Telefón" class="contact-icon-split">
+                                <img src="images/E-mail.png" alt="E-mail" class="contact-icon-split">
+                            </div>
+                            <h3 class="contact-title">Telefón - E-mail:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">094 804 6868</p>
+                                <p class="contact-info-item">dodorestaurant.mi@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2: Address -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-2">
+                            <img src="images/Adresa.png" alt="Adresa" class="contact-icon">
+                            <h3 class="contact-title">Adresa:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Námestie osloboditeľov 1014/28, 071 01</p>
+                                <p class="contact-info-item">Michalovce - OD DODO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 3: Opening Hours -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-3">
+                            <img src="images/Otváracie%20hodiny.png" alt="Otváracie hodiny" class="contact-icon">
+                            <h3 class="contact-title">Otváracie hodiny</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Pondelok - Štvrtok: 10:00 - 22:00</p>
+                                <p class="contact-info-item">Piatok: 10:00 - 23:00</p>
+                                <p class="contact-info-item">Sobota: 11:00 - 23:00</p>
+                                <p class="contact-info-item">Nedeľa: 11:00 - 22:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 4: Professional Service (Facebook) -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-4">
+                            <img src="images/Profesionálny.png" alt="Facebook" class="contact-icon">
+                            <h3 class="contact-title">Profesionálny servis</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">
+                                    <a href="https://www.facebook.com/profile.php?id=61555562721868" target="_blank"
+                                        class="contact-link-underline">Dodo Vietnamese Restaurant</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dodo-footer">
+        <div class="container dodo-footer-container">
+            <div class="footer-nav">
+                <a href="onas.html" class="footer-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="footer-nav-link">Galléria</a>
+                <a href="index.html#contact" class="footer-nav-link">Kontakt</a>
+                <a href="menu.html" class="footer-nav-link">Menu</a>
+                <a href="index.html#reserve" class="footer-nav-link">Rezervovať si stôl</a>
+                <span class="footer-lang-selector">
+                    <a href="#" class="footer-nav-link">SK</a>
+                    <span class="footer-lang-separator">|</span>
+                    <a href="#" class="footer-nav-link">EN</a>
+                </span>
+            </div>
+            <div class="text-center">
+                <img src="images/img4.png" alt="DODO Logo" class="footer-logo">
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="cart-script.js"></script>
+</body>
+
+</html>
+

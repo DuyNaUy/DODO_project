@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="sk" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DEDO Vietnamese Restaurant - Naša ponuka tradičných jedál.">
+    <title>Menu - DEDO Vietnamese Restaurant</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@400..700&display=swap"
+        rel="stylesheet">
+    <!-- Local Bootstrap 5.3.7 CSS -->
+    <link rel="stylesheet" href="bootstrap-5.3.7-examples/assets/dist/css/bootstrap.min.css">
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="style.css?v=1.5">
+</head>
+
+<body>
+    <!-- Top Header Navigation -->
+    <header class="dodo-header sticky-top">
+        <!-- Desktop Navigation Container (Visible on screen widths > 768px) -->
+        <div class="header-nav-container">
+            <!-- Left Nav Links -->
+            <div class="left-nav">
+                <a href="onas.html" class="dodo-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="dodo-nav-link">Galléria</a>
+                <a href="contact.html" class="dodo-nav-link">Kontakt</a>
+            </div>
+
+            <!-- Logo (Centered on Desktop) -->
+            <a href="index.html" class="dodo-logo-link">
+                <img src="images/logo.png" alt="ĐEĐO Logo" class="dodo-logo-img">
+            </a>
+
+            <!-- Right Nav Links -->
+            <div class="right-nav">
+                <!-- Menu Link with Fork & Spoon Icon -->
+                <a href="menu.html" class="dodo-nav-link active">
+                    <span class="dodo-nav-text d-none d-md-inline">Menu</span>
+                    <img src="images/Menu.png" alt="Menu Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Rezervovat Link with Service Bell Icon -->
+                <a href="index.html#reserve" class="dodo-nav-link text-nowrap">
+                    <span class="dodo-nav-text d-none d-md-inline">Rezervovať si stôl</span>
+                    <img src="images/Rezervovať%20si%20stôl.png" alt="Reservation Icon" class="dodo-nav-icon">
+                </a>
+
+                <!-- Cart Icon -->
+                <a href="cart.html" class="dodo-nav-link" aria-label="Cart" id="cartIcon">
+                    <img src="images/cart.png" alt="Cart Icon" class="dodo-nav-icon">
+                    <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Container (Visible on screen widths <= 768px) -->
+        <div class="mobile-nav-container">
+            <!-- Logo (Left-aligned on Mobile) -->
+            <a href="index.html" class="mobile-logo-link">
+                <img src="images/logo.png" alt="ĐEĐO Logo" class="mobile-logo-img">
+            </a>
+
+            <!-- Right Utilities (Cart & Hamburger) -->
+            <div class="mobile-right-utils">
+                <!-- Shopping Cart Icon -->
+                <a href="cart.html" class="mobile-cart-link" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart" class="mobile-cart-icon">
+                </a>
+
+                <!-- Hamburger Menu Trigger (Morphs into X on click) -->
+                <button class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle Menu"
+                    aria-expanded="false">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Custom Premium Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+    <div class="mobile-drawer-panel" id="mobileMenuDrawer">
+        <div class="mobile-drawer-body">
+            <nav class="mobile-drawer-nav">
+                <a href="index.html" class="mobile-drawer-link">Štart</a>
+                <a href="onas.html" class="mobile-drawer-link">O nás</a>
+                <a href="onas.html#gallery" class="mobile-drawer-link">Galléria</a>
+                <a href="contact.html" class="mobile-drawer-link">Kontakt</a>
+                <a href="menu.html" class="mobile-drawer-link active">Menu</a>
+                <a href="index.html#reserve" class="mobile-drawer-link">Rezervovať si stôl</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Menu Hero Section (Inherited but custom title matching Figma Frame 7) -->
+        <section class="dodo-hero d-flex align-items-center justify-content-center position-relative">
+            <!-- Warm overlay filter -->
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-container text-center z-2">
+                <div class="hero-text-block">
+                    <!-- Top: MENU title -->
+                    <h2 class="hero-top-title">MENU</h2>
+
+                    <!-- Middle text row (Vietnamese / Restaurant) -->
+                    <div class="hero-middle-row">
+                        <span class="hero-subtext">Vietnamese</span>
+                        <span class="hero-subtext">Restaurant</span>
+                    </div>
+
+                    <!-- Bottom: DODO title -->
+                    <h1 class="hero-main-title">DODO</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section with Tab Filter -->
+        <section class="dodo-menu-section py-5">
+            <div class="container">
+                <!-- Categories Tab Selector Row (Figma Frame 7 Outline Tabs Style) -->
+                <div class="menu-tabs-wrapper mb-5 reveal-fade-up">
+                    <div class="menu-tabs">
+                        <!-- Tab Row 1 -->
+                        <div class="menu-tabs-row">
+                            <button class="menu-tab-btn active" data-category="polievky">POLIEVKY</button>
+                            <button class="menu-tab-btn" data-category="predjedla">PREDJEDLÁ</button>
+                            <button class="menu-tab-btn" data-category="salaty">ŠALÁTY</button>
+                            <button class="menu-tab-btn" data-category="dodo-spec">DODO SPECIALITY</button>
+                            <button class="menu-tab-btn" data-category="vn-spec">VIETNAMSKE SPECIALITY</button>
+                            <button class="menu-tab-btn" data-category="hlavne">HLAVNÉ JEDLÁ</button>
+                            <button class="menu-tab-btn" data-category="wok">WOK SO ZELENINOU NA OMÁČKE 180G</button>
+                        </div>
+                        <!-- Tab Row 2 -->
+                        <div class="menu-tabs-row">
+                            <button class="menu-tab-btn" data-category="rezance">REZANCE</button>
+                            <button class="menu-tab-btn" data-category="cestoviny">CESTOVINY</button>
+                            <button class="menu-tab-btn" data-category="poke">POKE BOWL 300G</button>
+                            <button class="menu-tab-btn" data-category="maki">MAKI ROLL 8KS</button>
+                            <button class="menu-tab-btn" data-category="nigiri2">NIGIRI 2KS</button>
+                            <button class="menu-tab-btn" data-category="nigiri3">NIGIRI 3KS</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Cards Wrapper (3 Columns Desktop Grid matching Figma Frame 7) -->
+                <div class="menu-content-wrapper reveal-fade-up">
+                    <!-- 1. POLIEVKY Category Panel -->
+                    <div class="menu-category-panel active" id="category-polievky">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp1.png" alt="Pho Bo" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">1. Ostrokyslá 0,25 l</span>
+                                            <span class="menu-card-price">2,00 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Vývar, kuracie mäso, paprika, zázvor, mrkva,
+                                            cibuľa, chilli, vajíčko, cibuľka</p>
+                                        <button class="menu-order-btn" data-item-name="1. Ostrokyslá 0,25 l"
+                                            data-item-price="2.00">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp2.png" alt="Pho Ga" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">1. Margherita</span>
+                                            <span class="menu-card-price">7,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Paradajkový základ, mozzarella</p>
+                                        <button class="menu-order-btn" data-item-name="1. Margherita"
+                                            data-item-price="7.50">
+                                            OBJEDNAŤ JEDLO
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp3.png" alt="Bun Bo Hue" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">3. Bun Bo Hue 0.75l</span>
+                                            <span class="menu-card-price">9,00 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Pikantná hovädzia polievka s ryžovými
+                                            rezancami, citrónovou trávou a chilli</p>
+                                        <button class="menu-order-btn" data-item-name="3. Bun Bo Hue 0.75l"
+                                            data-item-price="9.00">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp4.png" alt="Tom Yum" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">4. Tom Yum 0.5l</span>
+                                            <span class="menu-card-price">8,90 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Thajská pikantná polievka s krevetami,
+                                            citrónovou trávou a koriandrom</p>
+                                        <button class="menu-order-btn" data-item-name="4. Tom Yum 0.5l"
+                                            data-item-price="8.90">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 5 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp5.png" alt="Miso Soup" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">5. Miso Soup 0.3l</span>
+                                            <span class="menu-card-price">4,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Tradičná japonská polievka s miso pastou, tofu
+                                            a morskými riasami</p>
+                                        <button class="menu-order-btn" data-item-name="5. Miso Soup 0.3l"
+                                            data-item-price="4.50">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 6 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp6.png" alt="Ramen" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">6. Ramen 0.75l</span>
+                                            <span class="menu-card-price">10,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Japonská polievka s rezancami, bravčovým mäsom,
+                                            vajíčkom a zeleninou</p>
+                                        <button class="menu-order-btn" data-item-name="6. Ramen 0.75l"
+                                            data-item-price="10.50">
+                                            OBJEDNAŤ JEDLO
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 7 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp1.png" alt="Spring Rolls" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">7. Spring Rolls 4ks</span>
+                                            <span class="menu-card-price">5,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Čerstvé jarné závitky s krevetami, zeleninou a
+                                            ryžovými rezancami</p>
+                                        <button class="menu-order-btn" data-item-name="7. Spring Rolls 4ks"
+                                            data-item-price="5.50">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 8 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp2.png" alt="Fried Spring Rolls" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">8. Fried Spring Rolls 4ks</span>
+                                            <span class="menu-card-price">6,20 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Vyprážané jarné závitky s bravčovým mäsom a
+                                            zeleninou</p>
+                                        <button class="menu-order-btn" data-item-name="8. Fried Spring Rolls 4ks"
+                                            data-item-price="6.20">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 9 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/sp3.png" alt="Grilled Chicken" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">9. Grilled Chicken Wings</span>
+                                            <span class="menu-card-price">8,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Grilované kuracie krídla s pikantnou omáčkou a
+                                            čerstvou zeleninou</p>
+                                        <button class="menu-order-btn" data-item-name="9. Grilled Chicken Wings"
+                                            data-item-price="8.50">
+                                            OBJEDNAŤ JEDLO
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. PREDJEDLÁ Category Panel -->
+                    <div class="menu-category-panel" id="category-predjedla" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img1.png" alt="Nem Ran" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">4. Nem Ran 2ks</span>
+                                            <span class="menu-card-price">6,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Smažené jarné závitky s bravčovým mäsom,
+                                            sklenenými rezancami a zeleninou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img2.png" alt="Nem Cuon" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">5. Nem Cuon 2ks</span>
+                                            <span class="menu-card-price">5,80 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Čerstvé letné závitky s krevetami, bravčovým
+                                            mäsom a ryžovými rezancami</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. ŠALÁTY Category Panel -->
+                    <div class="menu-category-panel" id="category-salaty" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img3.png" alt="Mango Salaty" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">6. Mango Šalát</span>
+                                            <span class="menu-card-price">7,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Osviežujúci mangový šalát s kuracím mäsom,
+                                            bylinkami, arašidmi a rybou omáčkou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. DODO SPECIALITY Category Panel -->
+                    <div class="menu-category-panel" id="category-dodo-spec" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img1.png" alt="Dodo Duck" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">7. Kačica DODO</span>
+                                            <span class="menu-card-price">12,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Chrumkavá pečená kačica na červenom kari s
+                                            kokosovým mliekom a čerstvou zeleninou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. VIETNAMSKE SPECIALITY Category Panel -->
+                    <div class="menu-category-panel" id="category-vn-spec" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img2.png" alt="Bun Cha" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">8. Bun Cha</span>
+                                            <span class="menu-card-price">10,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Grilovaný bravčový bôčik s ryžovými rezancami,
+                                            čerstvými bylinkami a zálievkou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img3.png" alt="Bun Bo Nam Bo" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">9. Bun Bo Nam Bo</span>
+                                            <span class="menu-card-price">10,20 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Restované hovädzie mäso s ryžovými rezancami,
+                                            zeleninou, arašidmi a cibuľkou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. HLAVNÉ JEDLÁ Category Panel -->
+                    <div class="menu-category-panel" id="category-hlavne" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img1.png" alt="Com Rang" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">10. Com Rang</span>
+                                            <span class="menu-card-price">9,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Smažená ryža s kuracím mäsom, zeleninou, vajcom
+                                            a smaženou cibuľkou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. WOK SO ZELENINOU NA OMÁČKE 180G Category Panel -->
+                    <div class="menu-category-panel" id="category-wok" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img2.png" alt="Wok beef" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">11. Wok Hovädzie 180g</span>
+                                            <span class="menu-card-price">10,90 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Wok restované hovädzie mäso so zeleninou a
+                                            tradičnou hustou tmavou omáčkou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. REZANCE Category Panel -->
+                    <div class="menu-category-panel" id="category-rezance" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img3.png" alt="Pho Xao" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">12. Pho Xao</span>
+                                            <span class="menu-card-price">9,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Smažené široké ryžové rezance s hovädzím alebo
+                                            kuracím mäsom a zeleninou</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. CESTOVINY Category Panel -->
+                    <div class="menu-category-panel" id="category-cestoviny" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img1.png" alt="Pasta" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">13. Cestoviny s Kuracím</span>
+                                            <span class="menu-card-price">8,90 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Lahodné cestoviny s restovanými kuracími
+                                            kúskami, smotanou a bylinkami</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. POKE BOWL 300G Category Panel -->
+                    <div class="menu-category-panel" id="category-poke" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img2.png" alt="Salmon Poke" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">14. Salmon Poke 300g</span>
+                                            <span class="menu-card-price">9,90 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Ryžová miska s marinovaným čerstvým lososom,
+                                            avokádom, edamame a sezamom</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. MAKI ROLL 8KS Category Panel -->
+                    <div class="menu-category-panel" id="category-maki" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img3.png" alt="Sake Maki" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">15. Sake Maki 8ks</span>
+                                            <span class="menu-card-price">4,80 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Tradičné maki rolky s čerstvým lososom a wasabi
+                                        </p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12. 120 NIGIRI 2KS Category Panel -->
+                    <div class="menu-category-panel" id="category-nigiri2" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img1.png" alt="Sake Nigiri" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">16. Sake Nigiri 2ks</span>
+                                            <span class="menu-card-price">4,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Kopčeky octovej ryže s plátkom čerstvého lososa
+                                            na vrchu</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13. 120 NIGIRI 3KS Category Panel -->
+                    <div class="menu-category-panel" id="category-nigiri3" style="display: none;">
+                        <div class="row g-4">
+                            <!-- Item 1 -->
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="menu-card">
+                                    <div class="menu-card-img-wrapper">
+                                        <img src="images/img2.png" alt="Sake Nigiri 3ks" class="menu-card-img">
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <div class="menu-card-header">
+                                            <span class="menu-card-name">17. Sake Nigiri 3ks</span>
+                                            <span class="menu-card-price">6,50 €</span>
+                                        </div>
+                                        <p class="menu-card-description">Kopčeky octovej ryže s plátkami čerstvého
+                                            lososa na vrchu (3ks)</p>
+                                        <button class="menu-order-btn">OBJEDNAŤ JEDLO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Allergens Section -->
+        <section class="dodo-allergens-section">
+            <div class="allergens-background" style="background-image: url('images/img3.png');">
+                <div class="allergens-overlay"></div>
+                <div class="container allergens-container">
+                    <div class="allergens-box">
+                        <h2 class="allergens-title">ZOZNAM ALERGÉNOV</h2>
+                        <div class="allergens-content">
+                            <div class="allergens-column">
+                                <p>1. Obilniny obsahujúce lepok (1. pšenica, raž, jačmeň, ovos, špaldá, kamut alebo ich
+                                    hybridné odrody).</p>
+                                <p>2. Kôrovce a výrobky z nich.</p>
+                                <p>3. Vajcia a výrobky z nich.</p>
+                                <p>4. Ryby a výrobky z nich.</p>
+                                <p>5. Arašidy a výrobky z nich.</p>
+                                <p>6. Sójové zrná a výrobky z nich.</p>
+                                <p>7. Mlieko a výrobky z neho.</p>
+                            </div>
+                            <div class="allergens-column">
+                                <p>8. Orechy, ktorými sú mandle, lieskové orechy, vlašské orechy, kešu, pekanové orechy,
+                                    para orechy, pistácie, makadamiové orechy a queenslandské orechy a výrobky z nich.
+                                </p>
+                                <p>9. Zeler a výrobky z neho.</p>
+                                <p>10. Horčica a výrobky z nej.</p>
+                                <p>11. Sezamové semená a výrobky z nich.</p>
+                                <p>12. Oxid siričitý a siričitany v koncentráciách vyšších ako 10 mg/kg alebo 10 mg/l.
+                                </p>
+                                <p>13. Vlčí bôb a výrobky z neho.</p>
+                                <p>14. Mäkkýše a výrobky z nich</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="dodo-contact-section">
+            <div class="container dodo-contact-container">
+                <h2 class="contact-section-title scroll-animate">KONTAKTUJTE NÁS</h2>
+                <div class="row contact-row g-4">
+                    <!-- Column 1: Phone / E-mail -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-1">
+                            <div class="contact-icons-wrapper">
+                                <img src="images/Telefón.png" alt="Telefón" class="contact-icon-split">
+                                <img src="images/E-mail.png" alt="E-mail" class="contact-icon-split">
+                            </div>
+                            <h3 class="contact-title">Telefón - E-mail:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">094 804 6868</p>
+                                <p class="contact-info-item">dodorestaurant.mi@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2: Address -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-2">
+                            <img src="images/Adresa.png" alt="Adresa" class="contact-icon">
+                            <h3 class="contact-title">Adresa:</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Námestie osloboditeľov 1014/28, 071 01</p>
+                                <p class="contact-info-item">Michalovce - OD DODO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 3: Opening Hours -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-3">
+                            <img src="images/Otváracie%20hodiny.png" alt="Otváracie hodiny" class="contact-icon">
+                            <h3 class="contact-title">Otváracie hodiny</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">Pondelok - Štvrtok: 10:00 - 22:00</p>
+                                <p class="contact-info-item">Piatok: 10:00 - 23:00</p>
+                                <p class="contact-info-item">Sobota: 11:00 - 23:00</p>
+                                <p class="contact-info-item">Nedeľa: 11:00 - 22:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 4: Professional Service (Facebook) -->
+                    <div class="col-12 col-md-6 col-lg-3 contact-column">
+                        <div class="contact-card scroll-animate delay-4">
+                            <img src="images/Profesionálny.png" alt="Facebook" class="contact-icon">
+                            <h3 class="contact-title">Profesionálny servis</h3>
+                            <div class="contact-desc">
+                                <p class="contact-info-item">
+                                    <a href="https://www.facebook.com/profile.php?id=61555562721868" target="_blank"
+                                        class="contact-link-underline">Dodo Vietnamese Restaurant</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="dodo-footer">
+        <div class="container dodo-footer-container">
+            <!-- Footer Navigation links -->
+            <div class="footer-nav">
+                <a href="onas.html" class="footer-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="footer-nav-link">Galléria</a>
+                <a href="contact.html" class="footer-nav-link">Kontakt</a>
+                <a href="menu.html" class="footer-nav-link active">Menu</a>
+                <a href="index.html#reserve" class="footer-nav-link">Rezervovať si stôl</a>
+                <span class="footer-lang-selector">
+                    <a href="#" class="footer-nav-link">SK</a>
+                    <span class="footer-lang-separator">|</span>
+                    <a href="#" class="footer-nav-link">EN</a>
+                </span>
+            </div>
+            <!-- Footer Big Logo -->
+            <div class="footer-logo-wrapper">
+                <img src="images/img4.png" alt="DODO Vietnamese Restaurant" class="footer-logo">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Váš nákupný košík</h2>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <p class="cart-empty">Váš košík je prázdny</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Celkom:</span>
+                <span class="cart-total-price" id="cartTotalPrice">0,00 €</span>
+            </div>
+            <button class="cart-checkout-btn" id="cartCheckoutBtn">OBJEDNAŤ</button>
+        </div>
+    </div>
+
+    <!-- Options Modal (for items with multiple prices/sizes) -->
+    <div class="options-modal-overlay" id="optionsModalOverlay"></div>
+    <div class="options-modal" id="optionsModal">
+        <div class="options-modal-header">
+            <h3 class="options-modal-title" id="optionsModalTitle">Vyberte možnosť</h3>
+            <button class="options-modal-close" id="optionsModalClose">&times;</button>
+        </div>
+        <div class="options-modal-body" id="optionsModalBody">
+            <!-- Options will be dynamically inserted here -->
+        </div>
+        <div class="options-modal-footer">
+            <button class="options-confirm-btn" id="optionsConfirmBtn">PRIDAŤ DO KOŠÍKA</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap-5.3.7-examples/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>

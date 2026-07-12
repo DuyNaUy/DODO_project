@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platba - DODO Vietnamese Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart-style.css">
+    <link rel="stylesheet" href="checkout-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="cart-page-body">
+    <!-- Header -->
+    <header class="dodo-header">
+        <div class="header-nav-container">
+            <!-- Left Navigation -->
+            <nav class="left-nav">
+                <a href="onas.html" class="dodo-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="dodo-nav-link">Galléria</a>
+                <a href="contact.html" class="dodo-nav-link">Kontakt</a>
+            </nav>
+
+            <!-- Center Logo -->
+            <a href="index.html" class="dodo-logo-link">
+                <img src="images/logo.png" alt="DODO Logo" class="dodo-logo-img">
+            </a>
+
+            <!-- Right Navigation -->
+            <nav class="right-nav">
+                <a href="menu.html" class="dodo-nav-link">
+                    <span class="dodo-nav-text d-none d-md-inline">Menu</span>
+                    <img src="images/Menu.png" alt="Menu Icon" class="dodo-nav-icon">
+                </a>
+                <a href="index.html#reserve" class="dodo-nav-link text-nowrap">
+                    <span class="dodo-nav-text d-none d-md-inline">Rezervovať si stôl</span>
+                    <img src="images/Rezervovať%20si%20stôl.png" alt="Reservation Icon" class="dodo-nav-icon">
+                </a>
+                <a href="cart.html" class="dodo-nav-link" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart Icon" class="dodo-nav-icon">
+                </a>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav-container">
+            <a href="index.html" class="mobile-logo-link">
+                <img src="images/logo.png" alt="DODO Logo" class="mobile-logo-img">
+            </a>
+            <div class="mobile-right-utils">
+                <a href="cart.html" class="mobile-cart-link">
+                    <img src="images/cart.png" alt="Cart" class="mobile-cart-icon">
+                </a>
+                <button class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+        <div class="mobile-drawer-panel" id="mobileMenuDrawer">
+            <div class="mobile-drawer-body">
+                <nav class="mobile-drawer-nav">
+                    <a href="onas.html" class="mobile-drawer-link">O nás</a>
+                    <a href="onas.html#gallery" class="mobile-drawer-link">Galléria</a>
+                    <a href="contact.html" class="mobile-drawer-link">Kontakt</a>
+                    <a href="menu.html" class="mobile-drawer-link">Menu</a>
+                    <a href="index.html#reserve" class="mobile-drawer-link">Rezervovať si stôl</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Page Content -->
+    <main class="checkout-page-section">
+        <div class="container checkout-container">
+            <div class="row">
+                <!-- Left Column: Checkout Form -->
+                <div class="col-12 col-lg-7 checkout-left-col">
+                    <h1 class="checkout-title font-serif">Platba</h1>
+                    
+                    <form id="checkoutForm" class="checkout-form">
+                        <!-- Contact info -->
+                        <div class="checkout-section">
+                            <h2 class="checkout-section-title">Kontaktné údaje</h2>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <input type="email" id="email" class="form-control checkout-input" placeholder="E-mailová adresa*" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="tel" id="phone" class="form-control checkout-input" placeholder="Telefónne číslo*" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery method -->
+                        <div class="checkout-section">
+                            <h2 class="checkout-section-title">Spôsob doručenia</h2>
+                            <div class="delivery-option-box">
+                                <span class="delivery-icon-wrapper">
+                                    <svg class="delivery-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="delivery-text">Osobný odber v reštaurácii</span>
+                            </div>
+                        </div>
+
+                        <!-- Estimated pickup time -->
+                        <div class="checkout-section">
+                            <h2 class="checkout-section-title">Predpokladaný čas vyzdvihnutia</h2>
+                            <div class="time-selection-wrapper" id="timeModalTrigger" style="cursor: pointer;">
+                                <span class="calendar-icon-wrapper">
+                                    <svg class="calendar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </span>
+                                <div id="selectedTimeDisplay" class="checkout-select-trigger">Vyberte požadovaný čas</div>
+                                <input type="hidden" id="pickupTime" name="pickupTime" required>
+                            </div>
+                        </div>
+
+                        <!-- Payment method -->
+                        <div class="checkout-section">
+                            <h2 class="checkout-section-title">Spôsob platby</h2>
+                            <div class="payment-methods-box">
+                                <label class="payment-method-option">
+                                    <input type="radio" name="paymentMethod" value="cod" checked>
+                                    <span class="custom-radio text-center"></span>
+                                    <span class="option-text">Platba pri prevzatí (COD)</span>
+                                </label>
+                                <label class="payment-method-option">
+                                    <input type="radio" name="paymentMethod" value="card-intl">
+                                    <span class="custom-radio"></span>
+                                    <span class="option-text">Medzinárodná platobná karta</span>
+                                </label>
+                                <label class="payment-method-option">
+                                    <input type="radio" name="paymentMethod" value="card-local">
+                                    <span class="custom-radio"></span>
+                                    <span class="option-text">Tuzemská platobná karta</span>
+                                </label>
+                                <label class="payment-method-option">
+                                    <input type="radio" name="paymentMethod" value="qr">
+                                    <span class="custom-radio"></span>
+                                    <span class="option-text">Platba cez QR kód</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn checkout-submit-btn">Potvrdiť údaje</button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Order Summary Box -->
+                <div class="col-12 col-lg-5 checkout-right-col">
+                    <div class="checkout-summary-box">
+                        <!-- Dynamic items list -->
+                        <div class="checkout-summary-items" id="checkoutSummaryItems">
+                            <!-- Items populated by JS -->
+                        </div>
+
+                        <!-- Coupon Code -->
+                        <div class="checkout-coupon-wrapper">
+                            <div class="checkout-coupon-input-group">
+                                <div class="checkout-coupon-icon-wrapper">
+                                    <img src="images/Zadajte%20zľavový%20kód.png" alt="Coupon Icon" class="checkout-coupon-icon">
+                                </div>
+                                <input type="text" id="couponCode" class="checkout-coupon-input" placeholder="Zadajte zľavový kód">
+                                <button type="button" id="applyCoupon" class="checkout-coupon-btn">Použiť</button>
+                            </div>
+                        </div>
+
+                        <!-- Price Breakdown -->
+                        <div class="checkout-totals">
+                            <div class="checkout-total-row">
+                                <span class="checkout-total-label">Medziúčet</span>
+                                <span class="checkout-total-value" id="checkoutSubtotal">0,00</span>
+                            </div>
+                            <div class="checkout-total-row">
+                                <span class="checkout-total-label">Zľava na produkty</span>
+                                <span class="checkout-total-value discount" id="checkoutDiscount">- 0,00</span>
+                            </div>
+                            <div class="checkout-total-row">
+                                <span class="checkout-total-label">Doprava</span>
+                                <span class="checkout-total-value" id="checkoutDelivery">0,00</span>
+                            </div>
+                            <div class="checkout-totals-divider"></div>
+                            <div class="checkout-total-row total">
+                                <span class="checkout-total-label">Celkom</span>
+                                <span class="checkout-total-value" id="checkoutTotal">0,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy Links - moved outside row to appear at bottom on mobile -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="checkout-policy-links">
+                        <a href="#" class="checkout-policy-link">Zásady ochrany osobných údajov</a>
+                        <span class="policy-divider">|</span>
+                        <a href="#" class="checkout-policy-link">Obchodné podmienky</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   
+    <!-- Time Selection Modal Overlay -->
+    <div class="time-modal-overlay" id="timeModal">
+        <div class="time-modal-content">
+            <button type="button" class="time-modal-close" id="closeTimeModal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h3 class="time-modal-title">Čas doručenia</h3>
+            
+            <!-- Horizontal Day Tabs -->
+            <div class="time-modal-days-wrapper">
+                <div class="time-modal-days" id="timeModalDays">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+                <button type="button" class="time-modal-next-btn" id="nextDayBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Vertical Time Slots List -->
+            <div class="time-modal-slots-container">
+                <div class="time-modal-slots" id="timeModalSlots">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+            
+            <!-- Submit Time Button -->
+            <button type="button" class="btn time-modal-submit-btn" id="confirmTimeBtn">Pokračovať k platbe</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="checkout-script.js"></script>
+</body>
+
+</html>
+

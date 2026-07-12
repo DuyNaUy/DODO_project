@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - DODO Vietnamese Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-input::placeholder {
+            color: #EFD987CC !important;
+            opacity: 1;
+        }
+        .contact-input::-webkit-input-placeholder {
+            color: #EFD987CC !important;
+        }
+        .contact-input::-moz-placeholder {
+            color: #EFD987CC !important;
+        }
+        .contact-input:-ms-input-placeholder {
+            color: #EFD987CC !important;
+        }
+
+        /* Hero Section Animations */
+        .hero-container {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .hero-container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-top-title,
+        .hero-middle-row,
+        .hero-main-title {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .hero-top-title.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.2s;
+        }
+
+        .hero-middle-row.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        .hero-main-title.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 991px) {
+            .contact-form-section {
+                padding: 30px 0 50px 0 !important;
+            }
+
+            .map-wrapper {
+                width: 100% !important;
+                height: 400px !important;
+                margin-bottom: 30px;
+            }
+
+            .map-wrapper iframe {
+                height: 400px !important;
+            }
+
+            .contact-form-wrapper {
+                padding: 0 20px !important;
+            }
+
+            .contact-form-wrapper h2 {
+                font-size: 2.5rem !important;
+                margin-bottom: 25px !important;
+            }
+
+            .contact-form-wrapper p {
+                font-size: 0.9rem !important;
+                margin-bottom: 30px !important;
+            }
+
+            .contact-input {
+                padding: 14px 16px !important;
+                font-size: 0.9rem !important;
+            }
+
+            .contact-submit-btn {
+                padding: 12px 40px !important;
+                font-size: 1rem !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-form-section {
+                padding: 20px 0 40px 0 !important;
+            }
+
+            .map-wrapper {
+                height: 300px !important;
+                margin-bottom: 25px;
+            }
+
+            .map-wrapper iframe {
+                height: 300px !important;
+            }
+
+            .contact-form-wrapper {
+                padding: 0 15px !important;
+            }
+
+            .contact-form-wrapper h2 {
+                font-size: 2rem !important;
+                margin-bottom: 20px !important;
+            }
+
+            .contact-form-wrapper p {
+                font-size: 0.85rem !important;
+                margin-bottom: 25px !important;
+            }
+
+            .contact-input {
+                padding: 12px 14px !important;
+                font-size: 0.85rem !important;
+            }
+
+            .contact-input textarea {
+                rows: 4;
+            }
+
+            .contact-submit-btn {
+                padding: 10px 35px !important;
+                font-size: 0.95rem !important;
+                letter-spacing: 1.5px !important;
+            }
+
+            .col-12:has(.contact-submit-btn) {
+                margin-top: 25px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="dodo-header">
+        <div class="header-nav-container">
+            <!-- Left Navigation -->
+            <nav class="left-nav">
+                <a href="onas.html" class="dodo-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="dodo-nav-link">Galléria</a>
+                <a href="contact.html" class="dodo-nav-link active">Kontakt</a>
+            </nav>
+
+            <!-- Center Logo -->
+            <a href="index.html" class="dodo-logo-link">
+                <img src="images/logo.png" alt="DODO Logo" class="dodo-logo-img">
+            </a>
+
+            <!-- Right Navigation -->
+            <nav class="right-nav">
+                <a href="menu.html" class="dodo-nav-link">
+                    <span class="dodo-nav-text d-none d-md-inline">Menu</span>
+                    <img src="images/Menu.png" alt="Menu Icon" class="dodo-nav-icon">
+                </a>
+                <a href="index.html#reserve" class="dodo-nav-link text-nowrap">
+                    <span class="dodo-nav-text d-none d-md-inline">Rezervovať si stôl</span>
+                    <img src="images/Rezervovať%20si%20stôl.png" alt="Reservation Icon" class="dodo-nav-icon">
+                </a>
+                <a href="cart.html" class="dodo-nav-link" aria-label="Cart">
+                    <img src="images/cart.png" alt="Cart Icon" class="dodo-nav-icon">
+                </a>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav-container">
+            <a href="index.html" class="mobile-logo-link">
+                <img src="images/logo.png" alt="DODO Logo" class="mobile-logo-img">
+            </a>
+            <div class="mobile-right-utils">
+                <a href="cart.html" class="mobile-cart-link">
+                    <img src="images/cart.png" alt="Cart" class="mobile-cart-icon">
+                </a>
+                <button class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+        <div class="mobile-drawer-panel" id="mobileMenuDrawer">
+            <div class="mobile-drawer-body">
+                <nav class="mobile-drawer-nav">
+                    <a href="onas.html" class="mobile-drawer-link">O nás</a>
+                    <a href="onas.html#gallery" class="mobile-drawer-link">Galléria</a>
+                    <a href="contact.html" class="mobile-drawer-link active">Kontakt</a>
+                    <a href="menu.html" class="mobile-drawer-link">Menu</a>
+                    <a href="index.html#reserve" class="mobile-drawer-link">Rezervovať si stôl</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="dodo-hero d-flex align-items-center justify-content-center position-relative">
+        <div class="hero-overlay"></div>
+        <div class="container hero-container scroll-animate fade-up">
+            <div class="hero-text-block">
+                <h1 class="hero-top-title scroll-animate fade-up delay-1">KONTAKT</h1>
+                <div class="hero-middle-row scroll-animate fade-up delay-2">
+                    <span class="hero-subtext">Vietnamese</span>
+                    <span class="hero-subtext">Restaurant</span>
+                </div>
+                <h2 class="hero-main-title scroll-animate fade-up delay-3">US</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section scroll-animate" style="background-color: var(--dodo-dark-green); padding: 40px 0 80px 0;">
+        <div class="container" style="max-width: 1200px; padding-right: 0;">
+            <div class="row g-4 align-items-center">
+                <!-- Left Column: Map -->
+                <div class="col-12 col-lg-6 scroll-animate slide-left">
+                    <div class="map-wrapper" style="width: 708px; max-width: 100%; height: 754px; border: 2px solid rgba(239, 217, 135, 0.3); overflow: hidden;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.8947198765!2d21.919082!3d48.7523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDQ1JzA4LjMiTiAyMcKwNTUnMDguNyJF!5e0!3m2!1ssk!2ssk!4v1234567890"
+                            width="100%" 
+                            height="754" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="col-12 col-lg-6 scroll-animate slide-right">
+                    <div class="contact-form-wrapper" style="padding: 0 0 0 60px; max-width: none; margin: 0;">
+                        <h2 style="font-family: 'SVN-Noe Display', var(--font-serif); font-size: 3.5rem; color: var(--dodo-gold); margin-bottom: 40px; text-align: center; font-weight: 400; letter-spacing: 0.02em;">NAPÍŠTE NÁM</h2>
+                        <p style="color: var(--dodo-gold); margin-bottom: 50px; font-size: 1rem; line-height: 1.7; text-align: center;">Máte otázku alebo plánujete špeciálnu objednávku? Budeme radi, ak sa nám ozvete.</p>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <input type="text" class="form-control contact-input" placeholder="Your Name" required style="background: transparent; border: 1px solid rgba(239, 217, 135, 0.4); color: #EFD987; padding: 16px 20px; font-size: 0.95rem; border-radius: 0;">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="email" class="form-control contact-input" placeholder="Email" required style="background: transparent; border: 1px solid rgba(239, 217, 135, 0.4); color: #EFD987; padding: 16px 20px; font-size: 0.95rem; border-radius: 0;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" class="form-control contact-input" placeholder="Phone number" style="background: transparent; border: 1px solid rgba(239, 217, 135, 0.4); color: #EFD987; padding: 16px 20px; font-size: 0.95rem; border-radius: 0;">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control contact-input" placeholder="Message" rows="6" required style="background: transparent; border: 1px solid rgba(239, 217, 135, 0.4); color: #EFD987; padding: 16px 20px; font-size: 0.95rem; resize: none; border-radius: 0;"></textarea>
+                                </div>
+                                <div class="col-12" style="margin-top: 40px; text-align: center;">
+                                    <button type="submit" class="btn contact-submit-btn" style="background-color: var(--dodo-gold); color: var(--dodo-dark-green); border: 2px solid var(--dodo-gold); padding: 14px 60px; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; display: inline-block; border-radius: 0;">ODOSLAŤ</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="dodo-contact-section" style="padding-top: 0;">
+        <div class="container dodo-contact-container">
+            <h2 class="contact-section-title scroll-animate">KONTAKTUJTE NÁS</h2>
+            <div class="row contact-row g-4">
+                <!-- Column 1: Phone / E-mail -->
+                <div class="col-12 col-md-6 col-lg-3 contact-column">
+                    <div class="contact-card scroll-animate delay-1">
+                        <div class="contact-icons-wrapper">
+                            <img src="images/Telefón.png" alt="Telefón" class="contact-icon-split">
+                            <img src="images/E-mail.png" alt="E-mail" class="contact-icon-split">
+                        </div>
+                        <h3 class="contact-title">Telefón - E-mail:</h3>
+                        <div class="contact-desc">
+                            <p class="contact-info-item">094 804 6868</p>
+                            <p class="contact-info-item">dodorestaurant.mi@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 2: Address -->
+                <div class="col-12 col-md-6 col-lg-3 contact-column">
+                    <div class="contact-card scroll-animate delay-2">
+                        <img src="images/Adresa.png" alt="Adresa" class="contact-icon">
+                        <h3 class="contact-title">Adresa:</h3>
+                        <div class="contact-desc">
+                            <p class="contact-info-item">Námestie osloboditeľov 1014/28, 071 01</p>
+                            <p class="contact-info-item">Michalovce - OD DODO</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 3: Opening Hours -->
+                <div class="col-12 col-md-6 col-lg-3 contact-column">
+                    <div class="contact-card scroll-animate delay-3">
+                        <img src="images/Otváracie%20hodiny.png" alt="Otváracie hodiny" class="contact-icon">
+                        <h3 class="contact-title">Otváracie hodiny</h3>
+                        <div class="contact-desc">
+                            <p class="contact-info-item">Pondelok - Štvrtok: 10:00 - 22:00</p>
+                            <p class="contact-info-item">Piatok: 10:00 - 23:00</p>
+                            <p class="contact-info-item">Sobota: 11:00 - 23:00</p>
+                            <p class="contact-info-item">Nedeľa: 11:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 4: Professional Service (Facebook) -->
+                <div class="col-12 col-md-6 col-lg-3 contact-column">
+                    <div class="contact-card scroll-animate delay-4">
+                        <img src="images/Profesionálny.png" alt="Facebook" class="contact-icon">
+                        <h3 class="contact-title">Profesionálny servis</h3>
+                        <div class="contact-desc">
+                            <p class="contact-info-item">
+                                <a href="https://www.facebook.com/profile.php?id=61555562721868" target="_blank"
+                                    class="contact-link-underline">Dodo Vietnamese Restaurant</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dodo-footer">
+        <div class="container dodo-footer-container">
+            <div class="footer-nav">
+                <a href="onas.html" class="footer-nav-link">O nás</a>
+                <a href="onas.html#gallery" class="footer-nav-link">Galléria</a>
+                <a href="contact.html" class="footer-nav-link">Kontakt</a>
+                <a href="menu.html" class="footer-nav-link">Menu</a>
+                <a href="index.html#reserve" class="footer-nav-link">Rezervovať si stôl</a>
+                <span class="footer-lang-selector">
+                    <a href="#" class="footer-nav-link">SK</a>
+                    <span class="footer-lang-separator">|</span>
+                    <a href="#" class="footer-nav-link">EN</a>
+                </span>
+            </div>
+            <div class="text-center">
+                <img src="images/img4.png" alt="DODO Logo" class="footer-logo">
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hero section animation on page load
+            setTimeout(() => {
+                const heroContainer = document.querySelector('.hero-container');
+                const heroTitle = document.querySelector('.hero-top-title');
+                const heroMiddle = document.querySelector('.hero-middle-row');
+                const heroMain = document.querySelector('.hero-main-title');
+
+                if (heroContainer) heroContainer.classList.add('active');
+                if (heroTitle) setTimeout(() => heroTitle.classList.add('active'), 200);
+                if (heroMiddle) setTimeout(() => heroMiddle.classList.add('active'), 400);
+                if (heroMain) setTimeout(() => heroMain.classList.add('active'), 600);
+            }, 300);
+
+            // Trigger scroll check on page load for other elements
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+        });
+
+        // Contact form submission with animation
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const btn = form.querySelector('.contact-submit-btn');
+            const originalText = btn.textContent;
+            
+            // Button loading animation
+            btn.style.transform = 'scale(0.95)';
+            btn.textContent = 'ODOSIELANIE...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 100);
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Success animation
+                btn.style.backgroundColor = '#4CAF50';
+                btn.style.borderColor = '#4CAF50';
+                btn.textContent = '✓ ODOSLANÉ';
+                
+                setTimeout(() => {
+                    alert('Ďakujeme za vašu správu!\nOzveme sa vám čo najskôr.');
+                    form.reset();
+                    
+                    // Reset button
+                    btn.style.backgroundColor = 'var(--dodo-gold)';
+                    btn.style.borderColor = 'var(--dodo-gold)';
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 800);
+            }, 1200);
+        });
+        
+        // Form input focus effects with animation
+        document.querySelectorAll('.contact-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--dodo-gold)';
+                this.style.transition = 'all 0.3s ease';
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 4px 12px rgba(239, 217, 135, 0.15)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'rgba(239, 217, 135, 0.4)';
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+
+            // Typing effect
+            input.addEventListener('input', function() {
+                if (this.value.length > 0) {
+                    this.style.borderColor = 'rgba(239, 217, 135, 0.6)';
+                }
+            });
+        });
+        
+        // Submit button hover effect with smooth animation
+        const submitBtn = document.querySelector('.contact-submit-btn');
+        if (submitBtn) {
+            submitBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 6px 20px rgba(239, 217, 135, 0.4)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            submitBtn.addEventListener('mouseleave', function() {
+                if (!this.disabled) {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                }
+            });
+
+            submitBtn.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+
+            submitBtn.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+        }
+
+        // Map wrapper animation on scroll
+        const mapWrapper = document.querySelector('.map-wrapper');
+        if (mapWrapper) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            mapWrapper.style.opacity = '0';
+            mapWrapper.style.transform = 'translateX(-30px)';
+            mapWrapper.style.transition = 'all 0.8s ease';
+            observer.observe(mapWrapper);
+        }
+    </script>
+</body>
+
+</html>
+
